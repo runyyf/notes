@@ -1,0 +1,26 @@
+﻿git添加远程仓库
+
+要添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用，运行 git remote add [shortname] [url]：
+
+$ git remote
+origin
+$ git remote add pb git://github.com/paulboone/ticgit.git
+$ git remote -v
+origin git://github.com/schacon/ticgit.git
+pb git://github.com/paulboone/ticgit.git
+
+
+
+git的基本使用方法
+九、输入git config --global user.name "d1php",这里的d1php是站长注册的用户名，你得改成你自己的
+十、输入git config --global user.email "studyphp@yahoo.cn",这里的邮箱也是是站长注册的邮箱，你得改成你自己的
+十一、上面两步在客户端配置你的git帐户，下面我们在本地建立自己的版本仓库，站长把版本仓库建立在D盘。输入cd d:，切换到D盘目录。
+十二、输入mkdir test，建立一个test目录，注意本地仓库名要和git中建立的仓库名一样
+十三、输入cd test，进入test目录
+十四、输入git init,初始化版本仓库
+十五、输入touch README,建立一个README文件
+十六、用文本编辑器打开README文件，随便输入一点文件，比如：this is a test!
+十七、输入git add README,将文件添加到上传队列
+十八、输入git commit -m 'test commit'，缓存提交，引号中的是对本次提交的描述，必须填写，不能为空
+十九、输入git remote add origin https://github.com/d1php/test.git,注意url格式，d1php是你注册时的昵称，test是你刚才建立的版本仓库
+二十、输入git push origin master，将README文件上传到版本库。这一步会一次让你填写你的git注册邮箱和密码，注意不要填错了

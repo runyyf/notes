@@ -1,0 +1,42 @@
+date:2015/03/01
+3.3   
+typedef 相比于define 更加适合定义新的数据类型
+typedef char *ptr_to_char;
+ptr_to_char  a;
+
+3.4
+int const *pci ;  value which is be pointed can not be changed;
+		  address can be changed
+
+int * const pci ; value which is be pointed can be changed;
+		  address can't be changed.
+
+3.5 链接属性和标识符
+   external ,internal,none ;
+   函数名和全局变量都是在缺省的情况下都是默认为external
+   static 只对缺省链接属性为external的声明才具有改变效果，改成internal
+   extern 只对第一次声明的变量生效，无法改变已经声明过的变量 
+
+3.7
+变量的存储类型，在代码块内自动缺省的情况下式自动变量automatic ，位于堆栈中
+static 静态变量在程序运行过程中一直存在
+register 寄存器变量  用于多次被访问的数据 ，存在于硬件寄存器中，不能定义太多
+         可能会被编译器自己忽略
+
+静态变量有自己的缺省值 0 ，而自动变量没有缺省值
+因为自动变量的初始化需要更多的开销，无法在程序链接的时候判断自动变量的存储位置，显示的初始化则是在代码初始化的地方隐式的插入一句赋值语句。
+因此在声明的时候赋值和先声明后赋值其结果都是一样的
+
+3.8  
+about static
+
+当static用于函数定义和代码快之外的声明时，static用于修改链接属性，从external转化为internal ，不改变标识符的存储类型和作用域，用这种方式声明的函数和变量只能用于该源文件的使用和访问
+
+当static用于代码快内的声明时，是修改变量的存储类型，这个变量将在程序开始执行的时候就创建，只到程序结束。
+
+
+date 03/04
+
+
+
+

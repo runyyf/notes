@@ -9,9 +9,11 @@ $ git remote -v
 origin git://github.com/schacon/ticgit.git
 pb git://github.com/paulboone/ticgit.git
 
+然后是按照第一次建立仓库的方法进行建立仓库 包括重新初始化
 
 
 git的基本使用方法
+
 九、输入git config --global user.name "d1php",这里的d1php是站长注册的用户名，你得改成你自己的
 十、输入git config --global user.email "studyphp@yahoo.cn",这里的邮箱也是是站长注册的邮箱，你得改成你自己的
 十一、上面两步在客户端配置你的git帐户，下面我们在本地建立自己的版本仓库，站长把版本仓库建立在D盘。输入cd d:，切换到D盘目录。
@@ -24,3 +26,54 @@ git的基本使用方法
 十八、输入git commit -m 'test commit'，缓存提交，引号中的是对本次提交的描述，必须填写，不能为空
 十九、输入git remote add origin https://github.com/d1php/test.git,注意url格式，d1php是你注册时的昵称，test是你刚才建立的版本仓库
 二十、输入git push origin master，将README文件上传到版本库。这一步会一次让你填写你的git注册邮箱和密码，注意不要填错了
+
+
+
+git branch的用法
+
+最后建立三个分支  包括 master（正式发布的分支）  develop  fix_bug（bug分支，从master中分出） feature（功能分支，从develop中分出）
+
+1.建立新的分支  git checkout -b develop
+2.将Develop分支发布到Master分支的命令： 快速合并的形式
+    　　# 切换到Master分支 	git checkout master
+    　　# 对Develop分支进行合并  git merge --no-ff develop
+
+	使用--no-ff参数后，会执行正常合并，在Master分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法
+
+3.删除分支  git  branch -d develop
+
+
+
+
+
+    　　
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

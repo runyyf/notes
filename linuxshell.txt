@@ -122,12 +122,29 @@ ehco $PATH
 常用的技巧： PATH=$PATH:.
 
 
+登录shell
+
+1./etc/profile
+
+2.$HOME/.bash_profile ;  //在HOME目录中寻找 .bashrc , '.bashrc' 检查 /etc下的公共bashrc文件并执			  行，同时 /etc/bashrc 执行/etc/profile.d
+
+3.$HOME/.bash_login ;
+4.$HOME/.profile
 
 
 
 
+环境变量作为变量数组
+
+$mytest=(one two three four five)
+$echo ${mytest[2]}
+$echo ${mytest[*]}  //全部打印
+$unset mytest       //移除mytest
 
 
+创建别名命令 alias
+alias  li='ls -il'
+ 
 
 
 

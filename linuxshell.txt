@@ -146,6 +146,32 @@ $unset mytest       //移除mytest
 alias  li='ls -il'
  
 
+第六章  理解linux文件的权限
+
+/etc/passwd 文件中包含用户信息   
+
+/usr/sbin/useradd test //增加test用户
+/usr/sbin/userdel test //delete test用户
+
+UID  用户id
+GID  用户组id
+
+usermod ex:
+
+      1、将 newuser2 添加到组 staff 中 
+          # usermod -G staff newuser2 
+      2、修改 newuser 的用户名为 newuser1 
+          # usermod -l newuser1 newuser 
+      3、锁定账号 newuser1 
+          # usermod -L newuser1 
+      4、解除对 newuser1 的锁定 
+          # usermod -U newuser1
+
+      5.  usermod -p 12345678 login  
+ 
+
+chsh  修改启动脚本
+
 
 
 

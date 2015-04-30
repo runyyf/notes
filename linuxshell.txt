@@ -177,3 +177,77 @@ chsh  修改启动脚本
 
 
 
+
+
+
+
+
+
+
+
+
+
+第二部分.shell脚本的基础知识
+
+
+第八章.基本脚本编译
+
+
+
+//ehco要打印字符串中有单引号要把整句话都用双引号引起来
+
+$echo 'rich says "scripting is easy " '.
+rich says "scripting is easy"
+
+
+//使用变量
+
+#!/bin/bash
+#test varilables
+days=10
+guest="Katie"
+echo "$guest checked in $days days ago"
+days=5
+guest="Jessica"
+echo "$guest checked in $days days ago
+
+
+out:
+
+Katie checked in 10 days ago
+Jessica checked in 5 days ago
+
+
+引用变量之前一定要用美元
+
+
+
+//反引号允许将shell命令的输出赋值给变量
+#!/bin/bash
+#using the backtick character
+
+testing=`date`
+echo the data and time are: $testing
+
+
+out:
+the data and time are: 2015年 04月 29日 星期三 15:01:45 HKT
+
+
+输出重定向
+
+>重定向输出 ，重写整个文件
+>>重定向输出，继续写文件，不重写
+
+date>test;
+
+cat test ;
+
+
+
+
+
+
+
+
+

@@ -246,7 +246,72 @@ cat test ;
 
 
 
+输入重定向
+wc<test
 
+内置输入重定向,将命令行输入作为命令的输入
+[root@localhost test]# wc << EOF
+> test1
+> test2
+> test3
+> test4
+> test5
+> EOF
+ 5  5 30
+
+管道  rpm -qa | sort
+
+
+
+//数学计算
+#!/bin/bash
+var1=100
+var2=50
+var3=45
+var4=$[$var1*($var2-$var3)]
+echo the final result is $var4
+
+[root@localhost test]# ./test.sh 
+the final result is 500
+
+
+//如果要用到浮点数计算
+用到bc计算器
+
+#!/bin/bash
+var1=100
+var2=45
+var3=`echo "scale=4; $var1 / $var2" |bc`
+echo the answer for this is $var3
+
+scale 表示小数位
+
+
+#!/bin/bash
+var1=10.46
+var2=43.67
+var3=33.2
+var4=71
+
+var5=`bc<<EOF
+scale = 4
+a1=($var1*$var2)
+b1=($var3*$var4)
+a1 + b1
+EOF
+`
+
+echo The final answer this mess is $var5
+
+[root@localhost test]# ./test_bc_1 
+The final answer this mess is 2813.9882
+
+
+echo $? //命令执行状态   0表示成功
+
+
+
+第九章 使用结构化的命令
 
 
 

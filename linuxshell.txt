@@ -314,5 +314,153 @@ echo $? //命令执行状态   0表示成功
 第九章 使用结构化的命令
 
 
+//if - then - fi  命令
+#!/bin/bash
+#test a bad command
+
+if asdfg
+then
+   echo "it didn't work"
+fi
+
+echo "we're outside of the if statement"
+
+
+
+
+[root@localhost test]# ./test2
+./test2: line 4: asdfg: command not found
+we're outside of the if statement
+
+
+
+
+//查找用户名
+#!/bin/bash
+
+echo hello,world
+
+testuser=stb
+if grep $testuser /etc/passwd
+then
+  echo the bash files for user $testuser are:
+  ls -a /home/$testuser/.b*
+fi
+
+echo $?
+
+
+
+//out
+
+root@localhost test]# ./test3
+hello,world
+stb:x:500:500:stb:/home/stb:/bin/bash
+the bash files for user stb are:
+/home/stb/.bash_history  /home/stb/.bash_logout  /home/stb/.bash_profile  /home/stb/.bashrc
+0
+
+if command1
+then     
+   command2  // command1 return 0 
+else 
+   command3  // command1 return 1 
+fi
+
+
+if command1
+then 
+	command2
+elif command3
+then 
+	command4
+fi
+
+
+
+
+#!/bin/bash
+
+testuser=stb1
+if grep $testuser /etc/passwd
+then
+        echo 1111
+elif date
+then
+        echo 222
+fi
+
+echo 4444
+
+//output
+[root@localhost test]# ./test4
+2015年 05月 05日 星期二 17:24:23 HKT
+222
+4444
+
+
+
+
+
+#!/bin/bash
+
+if [ 10 -gt 5 ]
+then
+        echo 11111
+else
+        echo 2222
+fi
+
+
+//output
+[root@localhost test]# ./test5
+11111
+
+
+数字比较
+大于--greater than  等于--equal than  小于--less than
+
+
+字符串比较
+-n str1  //检查str1的长度是否大于0
+-z str1  //检查str1的长度是否是0
+
+
+//字符串比较
+#!/bin/bash
+
+val1=aaa
+val2=bb
+
+if [ $val1>$val2 ]
+then
+        echo "$val1  is greater than $val2 "
+else
+        echo "$val1  is less  than $val2 "
+fi
+
+echo 12345
+
+if [ -n $val1 ]
+then
+        echo "$val1 's length is greater than 0"
+else
+        echo "$val1 's length is less than 0"
+fi
+
+echo 23456
+
+
+[root@localhost test]# ./test6
+aaa  is greater than bb 
+12345
+aaa 's length is greater than 0
+23456
+
+
+
+
+
+
 
 

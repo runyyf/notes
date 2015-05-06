@@ -458,6 +458,85 @@ aaa 's length is greater than 0
 23456
 
 
+在[]结构中">"需要被转义
+
+
+//检查目录是否存在，检查文件用[-f $HOME],文件是否可以被执行[-x $HOME]
+
+if [ -d $HOME ]
+then
+        echo "your HOME directory exit"
+        echo $HOME
+        cd $HOME
+        ls -a
+else
+        echo "your HOME directory isn't exit"
+fi
+
+
+[root@localhost test]# ./test11
+your HOME directory exit
+/root
+.                .dbus            .gtkrc-1.2-gnome2       .recently-used.xbel  .xauthf38mAN
+..               .dmrc            .ICEauthority           .scim                .xauthlnDc4T
+aaa              .elinks          .icons                  scsrun.log           .xsession-errors
+.adobe           .esd_auth        install.log             .subversion          
+anaconda-ks.cfg  .fonts.cache-1   install.log.syslog      .tcshrc              
+.bash_history    .gconf           .local                  .themes              
+.bash_logout     .gconfd          .macromedia             .thumbnails          
+.bash_profile    .gnome           .metacity               .tomboy              
+.bashrc          .gnome2          .mozilla                .tomboy.log          
+.chewing         .gnome2_private  .nautilus               .Trash               
+.config          .gstreamer-0.10  nautilus-debug-log.txt  .viminfo            
+.cshrc           .gtk-bookmarks   .pulse-cookie           .wapi
+
+
+
+第十章 更多结构化的命令
+
+//for命令
+
+#!/bin/bash
+
+for test in i dont\'t know if "this'll" work
+do
+        echo "word:$test"
+done
+
+[root@localhost test]# ./test13
+word:i
+word:dont't
+word:know
+word:if
+word:this'll
+word:work
+
+
+//从文件中读取内容
+#!/bin/bash
+#reading values from a file
+
+file="bb"
+
+for state in `cat $file`
+do
+        if [ $state -eq 1111 ]
+        then
+                echo "Visit Beautiful $state"
+        fi
+done
+
+[root@localhost test]# ./test14
+Visit Beautiful 1111
+
+
+
+
+
+
+
+
+
 
 
 

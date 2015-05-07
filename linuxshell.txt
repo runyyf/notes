@@ -527,17 +527,133 @@ do
 done
 
 [root@localhost test]# ./test14
-Visit Beautiful 1111
+visit Beautiful 1111
+
+
+//如果数据中有空格，则之上的方法是不能读取到完整的字符串的
+  默认情况下，bash shell将（空格，制表符，换行符作为分隔符）
+
+IFS=$'\n' 把分隔符设置为换行符
+
+在脚本中最好保存一下IFS值
+
+IFS.OLD=$IFS
+IFS=$'\n'
+<use the new IFS value in code>
+IFS=$IFS.OLD
 
 
 
 
+//文件通配符查找文件
+
+#!/bin/bash
+
+for file in /home/test/*
+do
+        if [ -d $file ]
+        then
+                echo "$file is a directory"
+        elif [ -f $file ]
+        then
+                echo "$file is a file"
+        fi
+
+done
+
+
+//tips
+
+linux中文件名和路径是支持存在空格的，因此我们要在文件名上加上双引号
+如[ -d "$file"]这样子
+
+
+
+//c的for语句
+#!/bin/bash
+
+
+for (( a=1,b=10; a<=10; a++,b--  ))
+do
+        echo "$a - $b"
+done
+
+[root@localhost test]# ./test16
+1 - 10
+2 - 9
+3 - 8
+4 - 7
+5 - 6
+6 - 5
+7 - 4
+8 - 3
+9 - 2
+10 - 1
+
+
+
+#!/bin/bash
+
+var1=10
+while [ $var1 -gt 0 ]
+do
+        echo $var1
+        var1=$[ $var1-1 ]
+done
+
+[root@localhost test]# ./test16
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+while   echo $var1
+        [ $var1 -gt 0 ]
+
+
+//跳出内循环
+
+#!/bin/bash
+
+var1=1
+
+while [ $var1 -lt 10 ]
+do
+        if [ $var1 -eq 5 ]
+        then
+                break
+        fi
+        echo "Iteration: $var1"
+        var1=$[ $var1 +1]
+done
+
+echo "the while loop is completed"
 
 
 
 
+//跳出外循环，break 1 跳出当前循环 。break 2 跳出当前上一级循环
 
+#!/bin/bash
 
+for(( a=1; a<4 ;a++ ))
+do
+        echo "Outer loop $a"
+        for (( b=1;b<100;b++))
+        do
+                if [ $b -gt 4 ]
+                then
+                        break 2
+                fi
+                echo "Inner loop: $b"
+        done
+done
 
 
 

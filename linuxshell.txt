@@ -657,5 +657,86 @@ done
 
 
 
+//将输入输入到文件
+#!/bin/bash
+
+for file in /home/test/*
+do
+        if [ -d "$file" ]
+        then
+                echo "$file is a directory"
+        else
+                echo "$file is a file"
+        fi
+
+done > output.txt
+
+
+
+//读取命令行输入
+#!/bin/bash
+
+factorial=1
+for (( number =1;number <= $1;number++))
+do
+        factorial=$[ $factorial * $number ]
+done
+echo the factorial of $1 is $factorial
+
+
+[root@localhost test]# ./test3 5
+the factorial of 5 is 120
+
+
+
+$0代表程序名称  $1代表第一个参数 $2代表第二个参数。。。。。
+$#输入参数计数
+
+
+#!/bin/bash
+
+if [ -n "$1" ]
+then
+        echo hello $1,$# ,glad to meet you
+else
+        echo "sorry,there haven't input"
+fi
+
+[root@localhost test]# ./test 1 2 3 4
+hello 1,4 ,glad to meet you
+
+
+
+//关于${$#}的问题
+
+#!/bin/bash
+
+params=$#
+echo the last parameter is $params
+echo the last parameter is ${!#}
+
+[root@localhost test]# ./test
+the last parameter is 0
+the last parameter is ./test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
